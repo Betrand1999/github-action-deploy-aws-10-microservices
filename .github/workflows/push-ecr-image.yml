@@ -19,7 +19,7 @@ jobs:
      - name: build docker image 
        run: docker build -t ecr-image . 
      - name: run image 
-       run: docker run -p 8080:80 ecrr-image 
+       run: docker run -p 8081:80 ecr-image 
      - name: tag image 
        run: docker tag ecr-image:latest ecr-repo/ecr-image:latest 
      - name: push the image 
