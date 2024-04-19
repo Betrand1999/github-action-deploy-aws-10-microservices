@@ -17,10 +17,10 @@ jobs:
        run: ls
         
      - name: build docker image 
-       run: docker build -t ecr-image . 
+       run: docker build -t ecr-repo . 
      - name: run image 
-       run: docker run -p 8081:80 ecr-image 
+       run: docker run -d -p 8081:80 ecr-repo
      - name: tag image 
-       run: docker tag ecr-image:latest ecr-repo/ecr-image:latest 
+       run: docker tag docker tag ecr-repo:latest 058264368002.dkr.ecr.us-east-1.amazonaws.com/ecr-repo:latest
      - name: push the image 
-       run: docker push ecr-repo/ecr-image:latest
+       run: docker push docker push 058264368002.dkr.ecr.us-east-1.amazonaws.com/ecr-repo:latest
