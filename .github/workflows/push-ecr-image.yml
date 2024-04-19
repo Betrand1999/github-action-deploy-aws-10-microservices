@@ -10,7 +10,12 @@ jobs:
      - name: checkout github repo 
        uses: actions/checkout@v2 
      - name: login to aws ECR 
-       run: aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 058264368002.dkr.ecr.us-east-1.amazonaws.com
+       env:
+        AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
+        AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+        AWS_DEFAULT_REGION: us-east-1
+       run: |
+        aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 058264368002.dkr.ecr.us-east-1.amazonaws.com
      - name: build docker image 
        run: docker build -t ecr-image . 
      - name: run image 
