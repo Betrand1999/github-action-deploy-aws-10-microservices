@@ -19,8 +19,8 @@ jobs:
      - name: build docker image 
        run: docker build -t ecr-repo . 
      - name: run image 
-       run: docker run -d -p 8082:80 ecr-repo
+       run: docker run -d -p 8080:80 ecr-repo
      - name: tag image 
        run: docker tag ecr-repo:latest 058264368002.dkr.ecr.us-east-1.amazonaws.com/ecr-repo:latest
      - name: push the image 
-       run: docker push docker push 058264368002.dkr.ecr.us-east-1.amazonaws.com/ecr-repo:latest
+       run: docker push 058264368002.dkr.ecr.us-east-1.amazonaws.com/ecr-repo:latest
