@@ -22,6 +22,7 @@ jobs:
 
       - name: Apply Kubernetes YAML
         run: |
+          aws eks --region us-east-1 update-kubeconfig --name my-eks-cluster
           kubectl apply -f ./release/deploy-eks.yaml --validate=false
           kubectl get deploy
           kubectl get svc
