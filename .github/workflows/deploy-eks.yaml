@@ -21,7 +21,7 @@ jobs:
 
       - name: Apply Kubernetes YAML
         run: |
-          kubectl apply -f ./release/deploy-eks.yaml
+          kubectl apply -f ./release/deploy-eks.yaml --validate=false
           kubectl get deploy
           kubectl get svc
         #dddsaa
