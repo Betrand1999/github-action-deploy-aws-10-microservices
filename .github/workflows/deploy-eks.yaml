@@ -43,6 +43,6 @@ jobs:
          eks-cluster-name: my-eks-cluster
      - name: deploy 
        run: |
-        aws eks --region us-east-1 update-kubeconfig --name my-cluster
+        aws eks --region us-east-1 update-kubeconfig --name my-eks-cluster
 
         kubectl apply -f ./release/deploy-eks-ecr-image.yaml
