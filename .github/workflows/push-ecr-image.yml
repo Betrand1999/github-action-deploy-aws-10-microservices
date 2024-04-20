@@ -22,9 +22,7 @@ jobs:
        run: docker run -d -p 8080:80 ecr-repo
      - name: tag image 
        run: docker tag ecr-repo:latest 058264368002.dkr.ecr.us-east-1.amazonaws.com/ecr-repo:latest
-     - name: push the image 
-       env:
-        AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
-        AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
-        AWS_DEFAULT_REGION: us-east-1
+     - name: login ecr 
+       run: aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 058264368002.dkr.ecr.us-east-1.amazonaws.com
+     - name: docker push  
        run: docker push 058264368002.dkr.ecr.us-east-1.amazonaws.com/ecr-repo:latest
