@@ -36,5 +36,5 @@ jobs:
        uses: actions/checkout@v2 
      - name: deploy 
        run: |
-        aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 058264368002.dkr.ecr.us-east-1.amazonaws.com
+        
         kubectl apply -f ./release/deploy-eks-ecr-image.yaml
