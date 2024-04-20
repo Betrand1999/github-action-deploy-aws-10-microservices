@@ -2,7 +2,7 @@ name: deploy to eks
 on: 
  push:
    branches:
-     - dev-branch 
+     - main
 jobs:
   build:
    runs-on: ubuntu-latest 
@@ -21,4 +21,5 @@ jobs:
         kubectl ./release/deploy-to-eks.yaml
         kubectl get deploy 
         kubectl get svc 
+        
 
