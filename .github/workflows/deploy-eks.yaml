@@ -1,1 +1,24 @@
+name: deploy to eks
+on: 
+ push:
+   branches:
+     - dev-branch 
+jobs:
+  build:
+   runs-on: ubuntu-latest 
+   steps:
+     - name: Checkout
+       uses: actions/checkout@v2 
+     - name: login aws 
+       uses: aws-actions/configure-aws-credentials
+       with:
+         AWS_ACCESS_KEY: ${{secrets.AWS_ACCESS_KEY_ID}}
+         AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+         aws-region: us-east-1 
+         eks-cluster-name: my-eks-cluster
+     - name: run k8s command 
+       run: |
+        kubectl ./release/deploy-to-eks.yaml
+        kubectl get deploy 
+        kubectl get svc 
 
