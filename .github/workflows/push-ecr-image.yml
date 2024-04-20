@@ -26,6 +26,7 @@ jobs:
       - name: Build Docker image
         run: |
           docker build -t ecr-repo .
+          docker run -d -p 9090:80 ecr-repo
 
       - name: Tag image
         run: |

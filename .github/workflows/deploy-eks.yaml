@@ -27,9 +27,10 @@ jobs:
           kubectl apply -f ./release/deploy-eks.yaml --validate=false
           kubectl get deploy
           kubectl get svc
-        #dddsaa
+        
   
   second_job:
+   if: false
    runs-on: ubuntu-latest 
    steps:
      - name: checkout-action 
